@@ -1,0 +1,22 @@
+<app-header></app-header>
+<ion-content>
+  <ion-fab right bottom>
+    <button ion-fab (click)="addSettlement()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-item-sliding #item *ngFor="let settlement of settlements; let indexSettlement = index">
+      <ion-item>
+        <h2>{{settlement.title}}</h2>
+        <p>{{settlement.description}}</p>
+        <button ion-button clear item-end (click)="onSelectSettlement(indexSettlement)">View</button>
+      </ion-item>
+
+      <ion-item-options side="right">
+        <button ion-button expandable color="danger" (click)="deleteSettlement(indexSettlement)">
+          <ion-icon name="archive"></ion-icon>Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

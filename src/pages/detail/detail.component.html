@@ -1,0 +1,23 @@
+<app-header></app-header>
+<ion-content>
+  <form>
+    <ion-item inline>
+      <ion-label>Settlement name</ion-label>
+      <ion-input type="text" name="name" [(ngModel)]="settlement.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Survival Limit</ion-label>
+      <ion-range name="survivalLimit" [(ngModel)]="settlement.survivalLimit" [max]="15">
+        <ion-icon range-left small name="sunny"></ion-icon>
+        <ion-icon range-right name="sunny"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    {{settlement | json}}
+  </form>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="saveSettlement()"><ion-icon name="sync"></ion-icon></button>
+  </ion-fab>
+</ion-content>
